@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Decision</title>
+</head>
+<body>
+    <form (submit)="onSubmit()">
+        <label for="personalCode">Personal Code:</label>
+        <input type="text" id="personalCode" name="personalCode" [(ngModel)]="loanApplication.personalCode" required>
+
+        <label for="loanAmount">Loan Amount:</label>
+        <input type="number" id="loanAmount" name="loanAmount" [(ngModel)]="loanApplication.loanAmount" required>
+
+        <label for="loanPeriod">Loan Period:</label>
+        <input type="number" id="loanPeriod" name="loanPeriod" [(ngModel)]="loanApplication.loanPeriod" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p *ngIf="decisionResult">
+        Decision: {{decisionResult.approved ? 'Approved' : 'Rejected'}}, Max Approved Amount: {{decisionResult.maxApprovedAmount}}
+    </p>
+
+</body>
+</html>
